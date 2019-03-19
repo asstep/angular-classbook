@@ -1,0 +1,48 @@
+<div class="authorization">
+    <div class="authorization-wrapper">
+        <form class="authorization-form"
+              [formGroup]="authForm"
+              (ngSubmit)="onSubmit()"
+              *ngIf="!this.authSuccess">
+
+            <div class="authorization-title">
+                Вхiд в особистий кабiнет
+            </div>
+            <div class="authorization-group">
+                <input type="text" autocomplete="no" formControlName="email" id="email" />
+                <label for="email"
+                       [ngClass]="{'error' : !this.isEmailValid,
+                                   'active' : authForm.value.email}">
+                    E-mail
+                </label>
+                <div class="authorization-error" [ngClass]="{'active' : !this.isEmailValid}">
+                    невiрний e-mail
+                </div>
+            </div>
+
+            <div class="authorization-group">
+                <input type="password" name="password" autocomplete="no" formControlName="password" id="password">
+                <label for="password"
+                       [ngClass]="{'error' : !this.isPasswordValid,
+                                   'active' : authForm.value.password}">
+                    Пароль
+                </label>
+                <div class="authorization-error" [ngClass]="{'active' : !this.isPasswordValid}">
+                    невiрний пароль
+                </div>
+            </div>
+
+            <div class="authorization-group">
+                <a routerLink="/auth" class="authorization-remember">
+                    Забули пароль?
+                </a>
+            </div>
+            <button type="submit" class="authorization-submit">
+                Увiйти
+            </button>
+        </form>
+        <div class="authorization-success" *ngIf="this.authSuccess">
+            Ви увійшли в особистий кабінет
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+.sidebar
+  background: #fff
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+
+  display: flex
+  flex-direction: column
+  width: 50px
+
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  height: 100vh
+  z-index: 100
+
+  transition: all 0.2s
+
+  &:hover
+    background: #fdfdfd
+    width: 250px
+
+  &-arrow
+    position: absolute
+    top: 50%
+    left: 0
+
+  &-wrapper
+    background: #ffffff
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    position: relative
+    height: 100%
+
+  &-box
+    width: 250px
+
+    &__space
+      flex: 1
+
+  a
+    color: #3f51b5
+    text-decoration: none
+
+    display: flex
+    align-items: center
+
+    span
+      margin-left: 15px
+
+  .material-icons
+    text-align: center
+    min-width: 50px
+
+  &-logo
+    border-bottom: 1px solid #ccc
+    padding-bottom: 25px
+    margin: 25px 0
+
+  &-menu
+    a
+      margin: 15px 0
+
+  &-login
+    margin: 15px 0
+
+@media screen and (max-width: 767px)
+  .sidebar
+    left: -250px
+    width: 250px
+
+    &.active
+      left: 0
+
+    &-arrow
+      background: #fff
+      border-radius: 0 4px 4px 0
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+
+      text-align: center
+      line-height: 1px
+
+      padding: 12px 0
+      left: 100%
+
+      .material-icons
+        font-size: 16px
+        min-width: 20px

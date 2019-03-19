@@ -1,0 +1,103 @@
+<div class="lessons-title">
+    Таблиця уроків классу
+</div>
+<div class="lessons-table">
+    <div class="lessons-row lessons-header">
+        <div class="lessons-col id">ID</div>
+        <div class="lessons-col name">Назва</div>
+        <div class="lessons-col teacher">Викладач</div>
+        <div class="lessons-col countHours">Кількість годин</div>
+        <div class="lessons-col homeWork"></div>
+    </div>
+    <div class="lessons-row" *ngFor="let item of this.lessonsList">
+        <div class="lessons-col id">{{item.id}}</div>
+        <div class="lessons-col name">{{item.name | titlecase }}</div>
+        <div class="lessons-col teacher">Викладач</div>
+        <div class="lessons-col countHours">Кількість годин</div>
+        <div class="lessons-col homeWork">
+            <div (click)="showHomeWork(item.id)">
+                <i class="material-icons">
+                    library_add
+                </i>
+            </div>
+        </div>
+    </div>
+
+    <div class="lessons-error" *ngIf="this.showRedirect">
+        Необхідна авторизація
+        <mat-progress-bar mode="determinate" value="{{this.timerRedirect}}"></mat-progress-bar>
+    </div>
+</div>
+
+<div class="addHW" [ngClass]="this.addHWShow ? 'active' : ''">
+    <div class="addHW-wrapper">
+        <i class="material-icons addHW-close" (click)="closeHomeWork()">
+            close
+        </i>
+
+        <form class="addHW-form"
+              [formGroup]="addHWForm"
+              (ngSubmit)="addHomeWork()">
+
+            <div class="addHW-title">
+                Домашнє завдання
+            </div>
+
+            <div class="addHW-group">
+                <mat-form-field class="lessons">
+                    <mat-select placeholder="Предмет" formControlName="lesson">
+                        <mat-option *ngFor="let item of this.lessonsList" [value]="item.id">
+                            {{item.name | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="addHW-group addHW-group__half">
+                <mat-form-field>
+                    <input matInput
+                           [matDatepicker]="createDate"
+                           placeholder="Створено"
+                           formControlName="createDate">
+                    <mat-datepicker-toggle matSuffix [for]="createDate"></mat-datepicker-toggle>
+                    <mat-datepicker #createDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="addHW-group addHW-group__half">
+                <mat-form-field>
+                    <input matInput
+                           [matDatepicker]="endDate"
+                           placeholder="Виконати на"
+                           formControlName="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="addHW-group">
+                <mat-form-field class="example-full-width">
+                    <input matInput
+                           placeholder="Текст завдання"
+                           formControlName="textTask">
+                </mat-form-field>
+            </div>
+
+            <div class="addHW-group addHW-group__buttons">
+
+                <div class="addHW-individual">
+                    <a href="">
+                        Додати iндивiдульне завдання
+                    </a>
+                </div>
+
+                <button type="submit" class="addHW-submit" [disabled]="!this.addHWForm.valid">
+                    Зберегти
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

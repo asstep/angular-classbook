@@ -1,0 +1,44 @@
+<div class="sidebar" [class.active]="this.isShowSidebar">
+    <div class="sidebar-arrow">
+        <i class="material-icons" *ngIf="!this.isShowSidebar" (click)="showSidebar()">
+            arrow_forward_ios
+        </i>
+        <i class="material-icons" *ngIf="this.isShowSidebar" (click)="showSidebar()">
+            arrow_back_ios
+        </i>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <div class="sidebar-box sidebar-logo">
+            <a routerLink="/">
+                <i class="material-icons">
+                    account_balance
+                </i>
+                <span>
+            Журнал классного керівника
+        </span>
+            </a>
+        </div>
+        <div class="sidebar-box sidebar-menu">
+            <a href="lessons">
+                <i class="material-icons">
+                    list
+                </i>
+                <span>
+                Таблиця уроків
+            </span>
+            </a>
+        </div>
+        <div class="sidebar-box__space"></div>
+        <div class="sidebar-box sidebar-login">
+            <a routerLink="auth">
+                <i class="material-icons">
+                    account_circle
+                </i>
+                <span>
+                Login
+            </span>
+            </a>
+        </div>
+    </div>
+</div>

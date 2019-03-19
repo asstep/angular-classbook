@@ -1,0 +1,182 @@
+.lessons
+
+  &-title
+    font-size: 24px
+    text-align: center
+    padding: 20px
+
+  &-table
+    display: flex
+    flex-direction: column
+    overflow: auto
+
+    .id
+      text-align: center
+      width: 50px
+
+    .name
+      text-align: center
+      flex: 1 1 30%
+      min-width: 100px
+
+    .teacher
+      flex: 2 1 auto
+      min-width: 90px
+
+    .countHours
+      text-align: center
+      width: 120px
+
+    .homeWork
+      text-align: center
+      cursor: pointer
+      width: 50px
+
+  &-row
+    border-bottom: 1px solid #f3f3f3
+
+    display: flex
+    align-items: center
+    min-width: 100%
+    width: fit-content
+
+  &-col
+    padding: 12px 14px
+
+  &-header
+    background: #3f51b5
+    border-bottom: 0
+    color: #fff
+
+  &-error
+    color: #FF7E9F
+    font-size: 20px
+    text-align: center
+
+    padding: 50px 20px
+    max-width: 500px
+    margin: auto
+    width: 100%
+
+    .mat-progress-bar
+      margin: 20px 0
+
+.addHW
+  background: rgba(0,0,0,0.5)
+
+  display: none
+  align-items: center
+  justify-content: center
+
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 99
+
+  &.active
+    display: flex
+
+  &-wrapper
+    background-color: #FAFAFA
+    border-radius: 4px
+    box-shadow: 0 0 16px 0 rgba(211,213,217,0.15), 0 8px 16px 0 rgba(117,128,148,0.25)
+
+    box-sizing: border-box
+    position: relative
+    padding: 50px
+    max-width: 550px
+    width: 100%
+
+  &-close
+    cursor: pointer
+    position: absolute
+    top: 20px
+    right: 20px
+    font-size: 20px
+    opacity: 0.54
+
+  &-title
+    color: #49515F
+    font-size: 20px
+    font-weight: 500
+    line-height: 28px
+
+    margin-bottom: 32px
+
+  &-form
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &-group
+    position: relative
+    width: 100%
+
+    &__half
+      max-width: 200px
+      width: 50%
+
+    &__buttons
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+      margin-top: 20px
+
+    .lessons
+      max-width: 200px
+      width: 100%
+
+    /deep/
+      .mat-form-field
+        width: 100%
+
+      .mat-form-field-wrapper
+        padding-bottom: 18px
+
+      .mat-form-field-infix
+        padding: 5px 0
+
+  &-individual
+    text-align: center
+    width: 100%
+
+    a
+      color: #00BCD4
+      font-size: 14px
+      font-weight: 500
+      letter-spacing: 0.5px
+      line-height: 16px
+      text-decoration: none
+
+  &-submit
+    background-color: #00BCD4
+    border: 0
+    border-radius: 2px
+    //box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24), 0 0 8px 0 rgba(0,0,0,0.12), 0 8px 8px 0 rgba(0,0,0,0.24)
+    opacity: 1
+    cursor: pointer
+
+    color: #FFFFFF
+    font-size: 14px
+    font-weight: 500
+    letter-spacing: 0.5px
+    line-height: 16px
+    text-align: center
+
+    padding: 10px 0
+    max-width: 160px
+    width: 100%
+
+    &:disabled
+      opacity: 0.2
+
+@media screen and (max-width: 767px)
+  .addHW
+    &-group
+      &__half
+        max-width: 100%
+        width: 100%
